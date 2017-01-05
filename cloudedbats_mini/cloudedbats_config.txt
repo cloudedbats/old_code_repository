@@ -1,0 +1,145 @@
+### 
+### Settings for CloudedBats-mini.
+### - http://cloudedbats.org
+### - http://backyardbats.org
+###
+### '#' used for comments and for deactivated rows. 
+###
+### Default setup for the Pettersons M500-384 microphone
+### at some random place (lat: 60.00, long: 15.00) in Sweden.
+###
+
+### Timezone. Available timezones are listed here: 
+### - http://twiki.org/cgi-bin/xtra/tzdatepick.html
+#timezone: UTC
+timezone: Europe/Stockholm
+
+### Latitude and longitude used in Wave file namnes when no GPS is attached.
+### Also used when calculating sunset, sunrise etc.
+default_latitude: 60.00
+default_longitude: 15.00
+
+### Wave file prefix.
+### Wave file will be named this way: <prefix>_<date>_<position>_<type>.wav
+wave_file_prefix: CloudedBats
+
+### Directory path for wave files.
+#wave_file_dir_path: /home/parallels/Desktop/MINI_TEST # For "Ubuntu on Mac" development.
+wave_file_dir_path: /media/usb/cloudedbats_mini
+
+### Each record length. A new file is created after the specified time: 
+#record_length_s: 1 # 1 sec.
+#record_length_s: 10 # 10 sec.
+#record_length_s: 60 # 1 min.
+#record_length_s: 120 # 2 min.
+#record_length_s: 300 # 5 min.
+record_length_s: 600 # 10 min.
+
+### Sound card. A unique part of the device name is enough. Check the log file 
+### (cloudedbats_log.txt) for a list of connected cards/sources.
+### Note: recording_type, adc_resolution and channels must match the sound card.
+sound_card_name: Pettersson
+#sound_card_name: iMic # Griffin iMic. 44.1kHz/16bits/stereo. For bat detectors, etc.
+#sound_card_name: GoMic # Samson GoMic 44.1kHz/16bits/mono. For audiable sound.
+
+### Recording type. Used for the <type> part in file names. For the TE192-TE500
+### alternatives the output sample frequency will be divided by 10 which means that
+### a one minute record will be marked as a ten minutes record.
+### - MIC: Can be used with external sound cards or USB microphones to 
+###   record audiable sound.
+### - HET/TD/TE: Can be used for external sound cards. To be used when 
+###   recording from a detector in heterodyne, time division or time expansion mode.
+### - FSxxx: Full scan. You can't listen to it. 
+### - TExxx: Time Expansion. Same file size as FSxxx, but when playing the file it will 
+###   be done at slower speed. (Time is multiplied by 10, frequency is divided by 10.) 
+#recording_type: MIC # Sound from sound card or USB microphone, 44.1 kHz.
+#recording_type: HET # Heterodyne from detector, 44.1 kHz.
+#recording_type: TD # Time Division from detector, 44.1 kHz.
+#recording_type: TE # Time Expansion from detector, 44.1 kHz.
+#recording_type: TE192 # Time expansion from 192 kHz.
+#recording_type: TE250 # Time expansion from 250 kHz.
+#recording_type: TE300 # Time expansion from 300 kHz.
+recording_type: TE384 # Time expansion from 384 kHz.
+#recording_type: TE500 # Time expansion from 500 kHz.
+#recording_type: FS192 # Full spectrum at 192 kHz.
+#recording_type: FS250 # Full spectrum at 250 kHz.
+#recording_type: FS300 # Full spectrum at 300 kHz.
+#recording_type: FS384 # Full spectrum at 384 kHz.
+#recording_type: FS500 # Full spectrum at 500 kHz.
+
+### ADC resolution (only tested on 16 bits).
+adc_resolution: 16 # 16 bits.
+
+### Channels (only support for mono and stereo).
+channels: MONO # Mono.
+# channels: STEREO # Stereo.
+
+###
+### Settings for the scheduler.
+###
+
+### Should the scheduler be used?
+use_scheduler: True
+#use_scheduler: False
+
+### Always use GPS time and position for the scheduler?
+### GPS values are always prefered by the software, but this option
+### will not start the scheduler until GPS found its position.
+only_use_gps_time_and_pos: True
+#only_use_gps_time_and_pos: False
+
+### Recording will start at (record_start_event + record_start_adjust).
+### Valid values are: sunset, dusk, dawn, sunrise and the format "hh:mm".
+record_start_event: sunset
+#record_start_event: dusk
+#record_start_event: dawn
+#record_start_event: sunrise
+#record_start_event: 00:00
+#record_start_event: 01:00
+#record_start_event: 20:00
+#record_start_event: 21:00
+#record_start_event: 22:00
+#record_start_event: 23:00
+
+### Adjust start event. Unit: minutes. 
+record_start_adjust: -30
+
+### Recording will stop at (record_stop_event + record_stop_adjust).
+### Valid values are: sunset, dusk, dawn, sunrise and the format "hh:mm".
+#record_stop_event: sunset # Sunset.
+#record_stop_event: dusk # Dusk.
+record_stop_event: dawn # Dawn.
+#record_stop_event: sunrise # Sunrise.
+#record_stop_event: 00:00
+#record_stop_event: 01:00
+#record_stop_event: 02:00
+#record_stop_event: 03:00
+#
+#record_stop_event: 21:00
+record_stop_event: 22:00
+#record_stop_event: 23:00
+
+### Adjust stop event. Unit: minutes. 
+record_stop_adjust: 45
+
+### WiFi may disturb the recorded sound.
+wifi_off_during_rec: True
+#wifi_off_during_rec: False
+
+### Turn the RPi off when finished to save battery. 
+#rpi_shutdown_when_finished: True 
+rpi_shutdown_when_finished: False 
+
+###
+### CloudedBats-mini control alternatives.
+###
+
+### GPIO is about adding switches or buttons to the RPi.
+### The mouse alternative is for control via a standard 
+### computer mouse. Use a wireless one for remote control.
+use_raspberry_pi_gpio: True
+use_mouse_for_remote_control: True
+
+### Save the battery when no space left at the memory card.
+rpi_shutdown_when_no_space: True
+
