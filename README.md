@@ -10,17 +10,16 @@ You just have to buy a good ultrasonic microphone and another Raspberry Pi. Ever
 
 ## Planned development
 
-During the bat season 2016 I focused on the recording unit. The first version contained a web server (Django) for configuration and controll. This was not practical when recording in the field and I decided to replace it with the *cloudedbats_mini* version. During 2017 focus will be on the cloud part, and the recording unit that integrates with the cloud will be called *cloudedbats_wurb*.  
-
+During the bat season 2016 I focused on the recording unit. The first version contained a web server (Django) for configuration and control. This was not practical when recording in the field and I decided to replace it with the *cloudedbats_mini* version. During 2017 focus will be on the web application, and the recording unit that integrates with the web application will be called *cloudedbats_wurb*.  
 ## Software alternatives
 
-#### cloudedbats_micro
+#### - cloudedbats_micro
 
-This is the best starting point if you want to test if it is possible to record sound on a Raspberry Pi. Contains a test file for the Pettersson M500-384 microphone. The code can easily be modified for other types of microphones. There is also some experimental code for the M500 microphone. M500 is for the Microsoft platform, but it is possible to connect to it from a Linux system by using communication at a lower level.
-
+This is the best starting point if you want to test if it is possible to record sound on a Raspberry Pi. Contains some test files for the Pettersson M500-384 microphone. The code can easily be modified for other types of microphones and they don't have to be ultrasonic. During early development I used Griffin iMic and Samson Go Mic.  
+There is also some experimental code for the M500 microphone. M500 is for the Microsoft platform, but it is possible to connect to it from a Linux system by using communication at a lower level. 
 More information is available in each python file.
 
-#### cloudedbats_mini
+#### - cloudedbats_mini
 
 This is the version I use myself at the moment. It is controlled by a settings file and two three-way switches. It has support for GPS and contains a scheduler that knows when sunset/sunrise/dawn/dusk occurs. Contains no web server, but can be accessed via SSH or FileZilla. 
 
@@ -29,7 +28,7 @@ Supports full speed recordings only, which means that you need about 30 GB for o
 There is no updated installation guide available yet, but the old one is partly valid: [Wiki: Raspberry Pi installation] (https://github.com/cloudedbats/backyardbats/wiki/Raspberry-Pi-installation)
 Please contact me if that's a problem.
 
-#### cloudedbats_wurb
+#### - cloudedbats_wurb
 
 Will be developed during the bat season 2017.
 
