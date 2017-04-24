@@ -8,6 +8,9 @@ BackyardBats is a part of the software project CloudedBats.
 
 You just have to buy a good ultrasonic microphone and another Raspberry Pi. Everything else is standard peripherals for smart phones and computers. The recording unit can be connected to your wireless network to record bats in your garden, but don't forget to bring it with you when visiting other places and countries. In the future I hope you are a part in a network where we can share data and records. Bats are an important group of mammals that earlier was expensive and hard to study, but now it is much more easy, affordable and fun.
 
+**Note: This code repository was earlier used for all Raspberry Pi related code. Now there is a new repository called cloudedbats_wurb for the new recording unit that should be and integrated part in the CloudedBats data flow. Therefore the need for this repository right now is not clear. It should be fun to set up the RPi as a hotspot and stream live data via Flask and Bokeh after some DSP, but at the moment there is no time for that...** 
+
+
 ## Planned development
 
 During the bat season 2016 I focused on the recording unit. The first version contained a web server (Django) for configuration and control. This was not practical when recording in the field and I decided to replace it with the *cloudedbats_mini* version. During 2017 focus will be on the web application, and the recording unit that integrates with the web application will be called *cloudedbats_wurb*.  
@@ -30,7 +33,7 @@ Please contact me if that's a problem.
 
 #### - cloudedbats_wurb
 
-Will be developed during the bat season 2017.
+The new version will be developed during the bat season 2017. Source code is available here: https://github.com/cloudedbats/cloudedbats_wurb 
 
 ## Contact
 
